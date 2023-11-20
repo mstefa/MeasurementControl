@@ -1,4 +1,4 @@
-import { pubsub } from "../../infrastructure/graphql/MeasurementResolvers";
+import { pubsub } from "../../graphql/MeasurementResolvers";
 import { MeasurementControl } from "../domain/MeasurementControl";
 import { MeasurementControlEventBus } from "../domain/MeasurementControlEventBust"
 

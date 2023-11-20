@@ -8,9 +8,9 @@ import { useServer } from 'graphql-ws/lib/use/ws';
 import http from 'http';
 import { WebSocketServer } from "ws";
 
-import { resolvers } from "./infrastructure/graphql/MeasurementResolvers";
-import { typeDefs } from "./infrastructure/graphql/MeasurementSchema";
-import { ReadMeasurement } from "./measurement/aplication/ReadMeasurement";
+import { resolvers } from "./graphql/MeasurementResolvers";
+import { typeDefs } from "./graphql/MeasurementSchema";
+import { ReadMeasurement } from "./measurement/application/ReadMeasurement";
 import { GraphQlEventBus } from "./measurement/infrastructure/GraphQlEventBus";
 import { PostMeasurement } from "./measurement/infrastructure/PostMesaurements";
 import { StaticPartRepository } from "./measurement/infrastructure/StaticPartRepository";
@@ -75,7 +75,9 @@ export async function startApolloServer(port: number) {
   await httpServer.listen(port)
 
   Logger.info(`GraphQL queries ready at http://localhost:${port}/`);
-  Logger.info(`Subscription ready at ws://localhost:${port}/subscriptions`);
+  Logger.info(`Subscription ready at ws://localhost:${port}/subscriptions \n`);
+  Logger.info(`\n`);
+
 
   postMeasurement.run() // MOCKED
 }

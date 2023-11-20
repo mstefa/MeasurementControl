@@ -1,5 +1,5 @@
 import { MeasurementValueMother } from "../../../tests/measurement/MeasurementValueMother"
-import { ReadMeasurement } from "../aplication/ReadMeasurement";
+import { ReadMeasurement } from "../application/ReadMeasurement";
 import { Part } from "../domain/Part";
 
 async function delay(ms: number): Promise<void> {
@@ -17,10 +17,10 @@ export class PostMeasurement {
   async run(): Promise<void> {
     // eslint-disable-next-line no-constant-condition
     while (true) {
+      await delay(10000); // Wait for 10second
       const measuredValue = MeasurementValueMother.fromPartRadom(this.part)
       this.readMeasurement.run(measuredValue)
       // eslint-disable-next-line no-await-in-loop
-      await delay(1000); // Wait for 10second
     }
 
 
